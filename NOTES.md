@@ -67,6 +67,15 @@ Useful Resources :-
 Papers :-
 
 - [SMOTE Original Paper](https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume16/chawla02a-html/chawla2002.html)
+- [Comparative study of algorithms for Atrial Fibrillation detection](https://ieeexplore.ieee.org/abstract/document/6164553)
+- [Automated Atrial Fibrillation Detection using a Hybrid CNN-LSTM Network on Imbalanced ECG Datasets](https://www.sciencedirect.com/science/article/pii/S1746809420303323)
+- [The Effect of Data Augmentation on Classification of Atrial Fibrillation in Short Single-Lead ECG Signals Using Deep Neural Networks](https://ieeexplore.ieee.org/abstract/document/9053800)
+- [Robust ECG signal classification for detection of atrial fibrillation using a novel neural network](https://ieeexplore.ieee.org/abstract/document/8331487)
+- [Detection of Atrial Fibrillation using model-based ECG analysis](https://ieeexplore.ieee.org/abstract/document/4761755)
+- [Robust detection of atrial fibrillation from short-term electrocardiogram using convolutional neural networks](https://www.sciencedirect.com/science/article/pii/S0167739X20305410)
+- [Reliable PPG-based algorithm in atrial fibrillation detection](https://ieeexplore.ieee.org/abstract/document/7833801)
+- [K-margin-based Residual-Convolution-Recurrent Neural Network for Atrial Fibrillation Detection](https://arxiv.org/abs/1908.06857)
+- [Ensemble Learning for Detection of Short Episodes of Atrial Fibrillation](https://ieeexplore.ieee.org/abstract/document/8553253)
 - [Handling Class Overlap and Imbalance to Detect Prompt Situations in Smart Homes](https://ieeexplore.ieee.org/document/6753930)
 - [MOON: A Mixed Objective Optimization Network for the Recognition of Facial Attributes](https://link.springer.com/chapter/10.1007%2F978-3-319-46454-1_2)
 - [Learning Deep Features for One-Class Classification](https://arxiv.org/abs/1801.05365)
