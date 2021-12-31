@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def load_data():
     """
-    Loads the data from the csv file and returns the dataframe
+    Loads the data from the csv file, derives some metadata and returns the dataframe
     """
     # Read file from data directory
     parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
