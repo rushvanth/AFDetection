@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import metrics
 
-af_data = load_data.load_data()
+af_data = load_data.gen_metadata()
 
 # Split data into X and y
 
@@ -21,5 +21,5 @@ dt = DecisionTreeClassifier(criterion='entropy', max_depth=4, random_state=101)
 dt.fit(x_train, y_train)
 y_pred = dt.predict(x_test)
 
-print('Accuracy of Decision Tree Classifier: ', metrics.accuracy_score(y_test, y_pred))
+print('Accuracy of Decision Tree Classifier: {:.4F}'.format(metrics.accuracy_score(y_test, y_pred) * 100))
 print(metrics.classification_report(y_test, y_pred))

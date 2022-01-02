@@ -4,7 +4,7 @@ import os
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def load_data():
+def gen_metadata():
     """
     Loads the data from the csv file, derives some metadata and returns the dataframe
     """
@@ -30,22 +30,3 @@ def load_data():
     img_file_path = 'images/count_of_AF_and_Non_AF_occurrences.png'
     plt.savefig(os.path.join(parent_dir, img_file_path))
     return data
-
-
-# # Split data into X and y
-
-# X = data.drop(['Control'], axis=1)
-# y = data['Control']
-
-# # Split data into training and testing sets
-
-# x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=101)
-
-# # Use Decision Tree Classifier to predict the outcome
-
-# dt = DecisionTreeClassifier(criterion='entropy', max_depth=4, random_state=101)
-# dt.fit(x_train, y_train)
-# y_pred = dt.predict(x_test)
-
-# print('Accuracy of Decision Tree Classifier: ', metrics.accuracy_score(y_test, y_pred))
-# print(metrics.classification_report(y_test, y_pred))
