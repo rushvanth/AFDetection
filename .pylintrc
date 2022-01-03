@@ -5,3 +5,6 @@ init-hook="from pylint.config import find_pylintrc; import os, sys; sys.path.app
 
 [FORMAT]
 max-line-length=240
+
+[MESSAGES CONTROL]
+disable=E1136, C0209
