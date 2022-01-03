@@ -22,4 +22,6 @@ dt.fit(x_train, y_train)
 y_pred = dt.predict(x_test)
 
 print('Accuracy of Decision Tree Classifier: {:.4F}'.format(metrics.accuracy_score(y_test, y_pred) * 100))
+print('Confusion Matrix: \n', metrics.confusion_matrix(y_test, y_pred))
+print('Area under curve: {:.4F}'.format(metrics.roc_auc_score(y_test, y_pred)))
 print(metrics.classification_report(y_test, y_pred))
