@@ -12,6 +12,7 @@ pylint:
   stage: Test
   script:
     - pylint src/
+  allow_failure: true
 
 dockerhub-deploy:
   variables:
