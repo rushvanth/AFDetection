@@ -1,0 +1,16 @@
+# Gitlab CI 
+# Build and Test pipeline for Python
+
+image: "python:latest"
+
+before_script:
+  - python --version
+  - pip install pylint
+
+stages:
+  - Test
+
+pylint:
+  stage: Test
+  script:
+    - pylint -d C0301 src/*.py
