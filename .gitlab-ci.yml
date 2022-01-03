@@ -16,7 +16,7 @@ pylint:
 
 dockerhub-deploy:
   variables:
-    - LATEST_VER: {"rushvanth/afdetection:latest"}
+    LATEST_VER: "rushvanth/afdetection:latest"
   before_script: 
     - echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USER" --password-stdin
   image: "docker:latest"
