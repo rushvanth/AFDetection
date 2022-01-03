@@ -1,11 +1,10 @@
 # Gitlab CI 
 # Build and Test pipeline for Python
 
-image: "python:3.7"
+image: "python:3.9"
 
 before_script:
   - python --version
-  - pip install pylint
   - pip install -r requirements.txt
 
 stages:
@@ -14,5 +13,5 @@ stages:
 pylint:
   stage: Test
   script:
-    - pylint -d C0301 src/*.py
+    - pylint src/*.py
   allow_failure: true
