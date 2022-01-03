@@ -1,0 +1,7 @@
+# Options for PyLint
+ 
+[MASTER]
+init-hook="from pylint.config import find_pylintrc; import os, sys; sys.path.append(os.path.join(os.path.dirname(find_pylintrc()), 'src'))"
+
+[FORMAT]
+max-line-length=240

@@ -1,17 +1,26 @@
 # Gitlab CI 
 # Build and Test pipeline for Python
 
-image: "rushvanth/ds-python"
-
-before_script:
-  - python --version
-  - pip install -r requirements.txt
-
 stages:
   - Test
+  - Deploy
 
 pylint:
+  before_script:
+  - python --version
+  image: "rushvanth/ds-python"
   stage: Test
   script:
-    - pylint src/*.py
-  allow_failure: true
+    - pylint src/
+
+dockerhub-deploy:
+  variables:
+    - LATEST_VER: {"rushvanth/afdetection:latest"}
+  before_script: 
+    - echo "$REGISTRY_PASSWORD" | docker login -u "$REGISTRY_USER" --password-stdin
+  image: "docker:latest"
+  stage: Deploy
+  script: 
+    - docker info
+    - docker build -t $LATEST_VER .
+    - docker push $LATEST_VER
