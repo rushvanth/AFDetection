@@ -1,7 +1,7 @@
 # Gitlab CI 
 # Build and Test pipeline for Python
 
-image: "python:3.9"
+image: "rushvanth/ds-python"
 
 before_script:
   - python --version
