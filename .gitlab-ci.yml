@@ -6,6 +6,7 @@ image: "python:3.7"
 before_script:
   - python --version
   - pip install pylint
+  - pip install -r requirements.txt
 
 stages:
   - Test
@@ -14,3 +15,4 @@ pylint:
   stage: Test
   script:
     - pylint -d C0301 src/*.py
+  allow_failure: true
