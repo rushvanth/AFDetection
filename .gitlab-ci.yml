@@ -6,8 +6,6 @@ stages:
   - Deploy
 
 pylint:
-  before_script:
-  - python --version
   image: "rushvanth/ds-python"
   stage: Test
   script:
