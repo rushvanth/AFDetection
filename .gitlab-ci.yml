@@ -25,3 +25,5 @@ dockerhub-deploy:
     - docker info
     - docker build -t $LATEST_VER .
     - docker push $LATEST_VER
+  only:
+    - tags
