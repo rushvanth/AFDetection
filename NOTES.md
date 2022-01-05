@@ -58,12 +58,10 @@ ABSTRACT = {The new advances in multiple types of devices and machine learning m
 DOI = {10.3390/jcm10225450}
 }
 ```
-<<<<<<< HEAD
 2.
 ```
 @ARTICLE{1306572,  author={Philip de Chazal and O'Dwyer, M. and Reilly, R.B.},  journal={IEEE Transactions on Biomedical Engineering},   title={Automatic classification of heartbeats using ECG morphology and heartbeat interval features},   year={2004},  volume={51},  number={7},  pages={1196-1206},  doi={10.1109/TBME.2004.827359}}
 ```
-=======
 
 
 ___
@@ -96,4 +94,3 @@ Papers :-
 - [MOON: A Mixed Objective Optimization Network for the Recognition of Facial Attributes](https://link.springer.com/chapter/10.1007%2F978-3-319-46454-1_2)
 - [Learning Deep Features for One-Class Classification](https://arxiv.org/abs/1801.05365)
 
->>>>>>> 3b4f5d2c10bb28c7a2b0564823ccafa3c4a734cf
