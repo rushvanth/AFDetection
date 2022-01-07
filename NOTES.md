@@ -29,16 +29,68 @@ SVM is better than all the other three.
 
 ![Paper1](images/paper1.jpg)
 
-## Automatic classification of heartbeats using ECG morphology and heartbeat interval features
+## Clustering ECG complexes using Hermite functions and self-organizing maps
 
 ### **Abstract:**
-A method for the automatic processing of the electrocardiogram (ECG) for the classification of heartbeats is presented. The method allocates manually detected heartbeats to one of the five beat classes recommended by ANSI/AAMI EC57:1998 standard, i.e., normal beat, ventricular ectopic beat (VEB), supraventricular ectopic beat (SVEB), fusion of a normal and a VEB, or unknown beat type. Data was obtained from the 44 nonpacemaker recordings of the MIT-BIH arrhythmia database. The data was split into two datasets with each dataset containing approximately 50 000 beats from 22 recordings. The first dataset was used to select a classifier configuration from candidate configurations. Twelve configurations processing feature sets derived from two ECG leads were compared. Feature sets were based on ECG morphology, heartbeat intervals, and RR-intervals. All configurations adopted a statistical classifier model utilizing supervised learning. The second dataset was used to provide an independent performance assessment of the selected configuration. This assessment resulted in a sensitivity of 75.9%, a positive predictivity of 38.5%, and a false positive rate of 4.7% for the SVEB class. For the VEB class, the sensitivity was 77.7%, the positive predictivity was 81.9%, and the false positive rate was 1.2%. These results are an improvement on previously reported results for automated heartbeat classification systems.
-### **Models Used:**
+An integrated method for clustering of QRS complexes is presented which includes basis function representation and self-organizing neural networks (NN’s). Each QRS complex is decomposed into Hermite basis functions and the resulting coefficients and width parameter are used to represent the complex. By means of this representation, unsupervised self-organizing NN’s are employed to cluster the data into 25 groups. Using the MIT-BIH arrhythmia database, the resulting clusters are found to exhibit a very low degree of misclassification (1.5%). The integrated method outperforms, on the MIT-BIH database, both a published supervised learning method as well as a conventional template cross-correlation clustering method.
+
+### **Models Used:** 
+- SOM
 
 ### **Parameters Classified:** 
+- Normal beat
+- Fusion of Ventricular and Normal Beat
+- Premature Atrial Beat
+- Premature Ventricular Beat
+
 ### **Result:** 
+Misclassification is too low (1.5%) in SOM compared to Conventional Cross Correlation method (4.4%)
+CPU Consumption: less than 1 min/record
+
 **Accuracy:** 
-**Computational Cost:**
+- SOM - 99.7%
+  
+## **Automated Atrial Fibrillation Detection using a Hybrid CNN-LSTM Network on Imbalanced ECG Datasets**
+
+### **Abstract:**
+Atrial fibrillation is a heart arrhythmia strongly associated with other heart-related complications that can increase the risk of strokes and heart failure. Manual electrocardiogram (ECG) interpretation for its diagnosis is tedious, time-consuming, requires high expertise, and suffers from inter- and intra-observer variability. Deep learning techniques could be exploited in order for robust arrhythmia detection models to be designed. In this paper, we propose a novel hybrid neural model utilizing focal loss, an improved version of cross-entropy loss, to deal with training data imbalance. ECG features initially extracted via a Convolutional Neural Network (CNN) are input to a Long Short-Term Memory (LSTM) model for temporal dynamics memorization and thus, more accurate classification into the four ECG rhythm types, namely normal (N), atrial fibrillation (AFIB), atrial flutter (AFL) and AV junctional rhythm (J). The model was trained on the MIT-BIH Atrial Fibrillation Database and achieved a sensitivity of 97.87%, and specificity of 99.29% using a ten-fold cross-validation strategy. The proposed model can aid clinicians to detect common atrial fibrillation in real-time on routine screening ECG.
+
+### **Models Used:** 
+- LSTM
+
+### **Parameters Classified:** 
+-  normal
+-  atrial fibrillation 
+-  atrial flutter
+-  AV junctional rhythm
+  
+### **Result:** 
+Sensitivity - 97.87%
+Specificity - 99.29%
+
+
+### Automated detection of atrial fibrillation using R-R intervals and multivariate-based classification
+
+## **Abstract:**
+Automated detection of AF from the electrocardiogram (ECG) still remains a challenge. In this study, we investigated two multivariate-based classification techniques, Random Forests (RF) and k-nearest neighbor (k-nn), for improved automated detection of AF from the ECG. We have compiled a new database from ECG data taken from existing sources. R-R intervals were then analyzed using four previously described R-R irregularity measurements: (1) the coefficient of sample entropy (CoSEn), (2) the coefficient of variance (CV), (3) root mean square of the successive differences (RMSSD), and (4) median absolute deviation (MAD). Using outputs from all four R-R irregularity measurements, RF and k-nn models were trained. RF classification improved AF detection over CoSEn with overall specificity of 80.1% vs. 98.3% and positive predictive value of 51.8% vs. 92.1% with a reduction in sensitivity, 97.6% vs. 92.8%. k-nn also improved specificity and PPV over CoSEn; however, the sensitivity of this approach was considerably reduced (68.0%).
+
+### **Models Used:** 
+- KNN
+- RF
+
+### **Parameters Classified:** 
+-  normal sinus rhythm
+-  atrial fibrillation
+-  pre-atrial contractions
+-  pre-ventricular contractions
+  
+### **Result:** 
+Sensitivity 
+KNN - 97.87%
+RF - 
+Specificity
+KNN - 99.29%
+RF - 
 
 > BibTex
 1. 
@@ -60,7 +112,15 @@ DOI = {10.3390/jcm10225450}
 ```
 2.
 ```
-@ARTICLE{1306572,  author={Philip de Chazal and O'Dwyer, M. and Reilly, R.B.},  journal={IEEE Transactions on Biomedical Engineering},   title={Automatic classification of heartbeats using ECG morphology and heartbeat interval features},   year={2004},  volume={51},  number={7},  pages={1196-1206},  doi={10.1109/TBME.2004.827359}}
+@ARTICLE{846677,
+  author={Lagerholm, M. and Peterson, C. and Braccini, G. and Edenbrandt, L. and Sornmo, L.},
+  journal={IEEE Transactions on Biomedical Engineering}, 
+  title={Clustering ECG complexes using Hermite functions and self-organizing maps}, 
+  year={2000},
+  volume={47},
+  number={7},
+  pages={838-848},
+  doi={10.1109/10.846677}}
 ```
 
 
@@ -68,7 +128,7 @@ ___
 
 ## Dealing with Class Imbalance in Data
 
-1. SMOTE oversampling - Minority class is oversampled to increase the number of instances of that class. 
+1. SMOTE oversampling - Minority class is oversampled along with majority undersampling to increase the number of instances of that class. 
 2. Weighting the cost function - Assign weights to your class labels such that the cost function penalizes loss on certain classes more severely.
 
 Useful Resources :-
