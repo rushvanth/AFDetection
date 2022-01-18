@@ -49,8 +49,60 @@ CPU Consumption: less than 1 min/record
 
 **Accuracy:** 
 - SOM - 99.7%
+
+## Automated detection of atrial fibrillation using R-R intervals and multivariate-based classification
+
+## **Abstract:**
+Automated detection of AF from the electrocardiogram (ECG) still remains a challenge. In this study, we investigated two multivariate-based classification techniques, Random Forests (RF) and k-nearest neighbor (k-nn), for improved automated detection of AF from the ECG. We have compiled a new database from ECG data taken from existing sources. R-R intervals were then analyzed using four previously described R-R irregularity measurements: (1) the coefficient of sample entropy (CoSEn), (2) the coefficient of variance (CV), (3) root mean square of the successive differences (RMSSD), and (4) median absolute deviation (MAD). Using outputs from all four R-R irregularity measurements, RF and k-nn models were trained. RF classification improved AF detection over CoSEn with overall specificity of 80.1% vs. 98.3% and positive predictive value of 51.8% vs. 92.1% with a reduction in sensitivity, 97.6% vs. 92.8%. k-nn also improved specificity and PPV over CoSEn; however, the sensitivity of this approach was considerably reduced (68.0%).
+
+### **Models Used:** 
+- KNN
+- RF
+
+### **Parameters Classified:** 
+-  normal sinus rhythm
+-  atrial fibrillation
+-  pre-atrial contractions
+-  pre-ventricular contractions
   
-## **Automated Atrial Fibrillation Detection using a Hybrid CNN-LSTM Network on Imbalanced ECG Datasets**
+### **Result:** 
+- Sensitivity 
+  - KNN - 68%
+  - RF - 92.8%
+- Specificity
+  - KNN - 95.1%
+  - RF - 98.3%
+
+## Comparative study of algorithms for Atrial Fibrillation detection
+
+### **Abstract:**
+Automatic detection of Atrial Fibrillation (AF) is necessary for the long-term monitoring of patients who are suspected to have AF. Several methods for AF detection exist in the literature. These methods are mainly based on two different characteristics of AF ECGs: the irregularity of RR intervals (RRI) and the fibrillatory electrical Atrial Activity (AA). The electrical AA is characterized by the absence of the P-wave (PWA) and special frequency properties (FSA). Nine AF detection algorithms were selected from literature and evaluated with the same protocol in order to study their performance under different conditions. Results showed that the highest sensitivity (Se=97.64%) and specificity (Sp=96.08%) was achieved with methods based on analysis of irregularity of RR interval, while combining RR and atrial activity analysis gave the highest positive predictive value (PPV=92.75%). Algorithms based on RR irregularity were also the most robust against noise (Se=85.79% and Sp=81.90% for SNR=0dB; and Se=82.52% and Sp=40.47% for SNR=-5dB).
+
+### **Models Used**
+- Nine algorithms based on analysis of RR Intervals and Atrial Activity
+- **RRI**
+  - Markov Model(MM)
+  - Simple Variance Parameter
+  - Statistical framework combination
+  - Kolmogorov Smirnov test
+  - Autoregressive modeling and white noise
+- **AA**
+  - QRS-T cancellation
+- **Both RRI and AA**
+  - Combined RRI using MM, with P wave absence (PWA) and Frequency spectrum analysis (FSA)
+  - RRI, PWA based on the position and morphology of the P wave
+  - RRI, PWA and FSA and classified using Neural Networks model.
+  
+### **Results**
+- Highest Sensitivity - 97.64% (Statistical framework)
+- Highest Specificity -  96.08% (Kolmogorov Smirnov test)
+- Lowest Error - 5.32% (Kolmogorov Smirnov test)
+- Highest PPV - 92.75% (RRI, PWA)
+- Lowest Sensitivity - 62.8% (AA only)
+- Lowest Specificity - 77.46% (AA only)
+- Highest Error - 28.39% (AA only)
+  
+## Automated Atrial Fibrillation Detection using a Hybrid CNN-LSTM Network on Imbalanced ECG Datasets
 
 ### **Abstract:**
 Atrial fibrillation is a heart arrhythmia strongly associated with other heart-related complications that can increase the risk of strokes and heart failure. Manual electrocardiogram (ECG) interpretation for its diagnosis is tedious, time-consuming, requires high expertise, and suffers from inter- and intra-observer variability. Deep learning techniques could be exploited in order for robust arrhythmia detection models to be designed. In this paper, we propose a novel hybrid neural model utilizing focal loss, an improved version of cross-entropy loss, to deal with training data imbalance. ECG features initially extracted via a Convolutional Neural Network (CNN) are input to a Long Short-Term Memory (LSTM) model for temporal dynamics memorization and thus, more accurate classification into the four ECG rhythm types, namely normal (N), atrial fibrillation (AFIB), atrial flutter (AFL) and AV junctional rhythm (J). The model was trained on the MIT-BIH Atrial Fibrillation Database and achieved a sensitivity of 97.87%, and specificity of 99.29% using a ten-fold cross-validation strategy. The proposed model can aid clinicians to detect common atrial fibrillation in real-time on routine screening ECG.
@@ -68,62 +120,36 @@ Atrial fibrillation is a heart arrhythmia strongly associated with other heart-r
 Sensitivity - 97.87%
 Specificity - 99.29%
 
+## Robust ECG signal classification for detection of atrial fibrillation using a novel neural network
 
-### Automated detection of atrial fibrillation using R-R intervals and multivariate-based classification
+### **Abstract**
+Electrocardiograms (ECG) provide a non-invasive approach for clinical diagnosis in patients with cardiac problems, particularly atrial fibrillation (AF). Robust, automatic AF detection in clinics remains challenging. Deep learning has emerged as an effective tool for handling complex data analysis with minimal pre- and post-processing. A 16-layer 1D Convolutional Neural Network (CNN) was designed to classify the ECGs including AF. One of the key advances of the proposed CNN was that skip connections were employed to enhance the rate of information transfer throughout the network by connecting layers earlier in the network with layers later in the network. Skip connections led to a significant increase in the feature learning capabilities of the CNN as well as speeding up the training time. For comparisons, we also have implemented recurrent neural networks (RNN) and spectrogram learning. The CNN was trained on 8,528 ECGs and tested on 3,685 ECGs ranging from 9 to 60 seconds in length. The proposed 16-layer CNN outperformed RNNs and spectrogram learning. The training of the CNN took 2 hours on a Titan XPascal GPU (NVidia) with 3840 cores. The testing accuracy for the CNN was 82% and the runtime was ~0.01 seconds for each signal classification. Particularly, the proposed CNN identified normal rhythm, AF and other rhythms with an accuracy of 90%, 82% and 75% respectively. We have demonstrated a novel CNN with skip connections to perform efficient, automatic ECG signal classification that could potentially aid robust patient diagnosis in real time.
 
-## **Abstract:**
-Automated detection of AF from the electrocardiogram (ECG) still remains a challenge. In this study, we investigated two multivariate-based classification techniques, Random Forests (RF) and k-nearest neighbor (k-nn), for improved automated detection of AF from the ECG. We have compiled a new database from ECG data taken from existing sources. R-R intervals were then analyzed using four previously described R-R irregularity measurements: (1) the coefficient of sample entropy (CoSEn), (2) the coefficient of variance (CV), (3) root mean square of the successive differences (RMSSD), and (4) median absolute deviation (MAD). Using outputs from all four R-R irregularity measurements, RF and k-nn models were trained. RF classification improved AF detection over CoSEn with overall specificity of 80.1% vs. 98.3% and positive predictive value of 51.8% vs. 92.1% with a reduction in sensitivity, 97.6% vs. 92.8%. k-nn also improved specificity and PPV over CoSEn; however, the sensitivity of this approach was considerably reduced (68.0%).
+### **Models Used**
+- 16 layer 1D CNN
+- Recurrent Neural Network
+- Spectrogram Learning
+  
+### **Parameters Classified**
+
+### **Results**
+
+![Paper1](images/F1 scores.gif)
+
+# Class Imbalance
+
+## The Effect of Data Augmentation on Classification of Atrial Fibrillation in Short Single-Lead ECG Signals Using Deep Neural Networks
+
+### **Abstract:**
+Cardiovascular diseases are the most common cause of mortality worldwide. Detection of atrial fibrillation (AF) in the asymptomatic stage can help prevent strokes. It also improves clinical decision making through the delivery of suitable treatment such as, anticoagulant therapy, in a timely manner. The clinical significance of such early detection of AF in electrocardiogram (ECG) signals has inspired numerous studies in recent years, of which many aim to solve this task by leveraging machine learning algorithms. ECG datasets containing AF samples, however, usually suffer from severe class imbalance, which if unaccounted for, affects the performance of classification algorithms. Data augmentation is a popular solution to tackle this problem. In this study, we investigate the impact of various data augmentation algorithms, e.g., oversampling, Gaussian Mixture Models (GMMs) and Generative Adversarial Networks (GANs), on solving the class imbalance problem. These algorithms are quantitatively and qualitatively evaluated, compared and discussed in detail. The results show that deep learning-based AF signal classification methods benefit more from data augmentation using GANs and GMMs, than oversampling. Furthermore, the GAN results in circa 3% better AF classification accuracy in average while performing comparably to the GMM in terms of f1-score.
 
 ### **Models Used:** 
-- KNN
-- RF
-
-### **Parameters Classified:** 
--  normal sinus rhythm
--  atrial fibrillation
--  pre-atrial contractions
--  pre-ventricular contractions
+- oversampling
+- Gaussian Mixture Models (GMMs)
+- Deep Convolutional Generative Adversarial Networks (DCGAN)
   
 ### **Result:** 
-Sensitivity 
-KNN - 97.87%
-RF - 
-Specificity
-KNN - 99.29%
-RF - 
-
-> BibTex
-1. 
-```
-@Article{jcm10225450,
-AUTHOR = {Sraitih, Mohamed and Jabrane, Younes and Hajjam El Hassani, Amir},
-TITLE = {An Automated System for ECG Arrhythmia Detection Using Machine Learning Techniques},
-JOURNAL = {Journal of Clinical Medicine},
-VOLUME = {10},
-YEAR = {2021},
-NUMBER = {22},
-ARTICLE-NUMBER = {5450},
-URL = {https://www.mdpi.com/2077-0383/10/22/5450},
-PubMedID = {34830732},
-ISSN = {2077-0383},
-ABSTRACT = {The new advances in multiple types of devices and machine learning models provide opportunities for practical automatic computer-aided diagnosis (CAD) systems for ECG classification methods to be practicable in an actual clinical environment. This imposes the requirements for the ECG arrhythmia classification methods that are inter-patient. We aim in this paper to design and investigate an automatic classification system using a new comprehensive ECG database inter-patient paradigm separation to improve the minority arrhythmical classes detection without performing any features extraction. We investigated four supervised machine learning models: support vector machine (SVM), k-nearest neighbors (KNN), Random Forest (RF), and the ensemble of these three methods. We test the performance of these techniques in classifying: Normal beat (NOR), Left Bundle Branch Block Beat (LBBB), Right Bundle Branch Block Beat (RBBB), Premature Atrial Contraction (PAC), and Premature Ventricular Contraction (PVC), using inter-patient real ECG records from MIT-DB after segmentation and normalization of the data, and measuring four metrics: accuracy, precision, recall, and f1-score. The experimental results emphasized that with applying no complicated data pre-processing or feature engineering methods, the SVM classifier outperforms the other methods using our proposed inter-patient paradigm, in terms of all metrics used in experiments, achieving an accuracy of 0.83 and in terms of computational cost, which remains a very important factor in implementing classification models for ECG arrhythmia. This method is more realistic in a clinical environment, where varieties of ECG signals are collected from different patients.},
-DOI = {10.3390/jcm10225450}
-}
-```
-2.
-```
-@ARTICLE{846677,
-  author={Lagerholm, M. and Peterson, C. and Braccini, G. and Edenbrandt, L. and Sornmo, L.},
-  journal={IEEE Transactions on Biomedical Engineering}, 
-  title={Clustering ECG complexes using Hermite functions and self-organizing maps}, 
-  year={2000},
-  volume={47},
-  number={7},
-  pages={838-848},
-  doi={10.1109/10.846677}}
-```
-
-
+Oversampling < GMM < DCGAN
 ___
 
 ## Dealing with Class Imbalance in Data
