@@ -134,7 +134,7 @@ Electrocardiograms (ECG) provide a non-invasive approach for clinical diagnosis 
 
 ### **Results**
 
-![Paper1](images/F1 scores.gif)
+![Paper1](images/F1_scores.jpg)
 
 # Class Imbalance
 
