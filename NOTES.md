@@ -131,10 +131,72 @@ Electrocardiograms (ECG) provide a non-invasive approach for clinical diagnosis 
 - Spectrogram Learning
   
 ### **Parameters Classified**
+- Normal Rhythm
+- AF
+- Other Rhythms
 
 ### **Results**
 
 ![Paper1](images/F1_scores.jpg)
+
+Overall Accuracy: 82%
+Normal: 90%
+AF: 82%
+Others: 75%
+
+**Computational Cost**
+Training: 2 hours with 3840 cores
+Testing: 0.01 seconds for each classification
+
+## Detection of Atrial Fibrillation using model-based ECG analysis
+
+### **Abstract**
+Atrial fibrillation (AF) is an arrhythmia that can lead to several patient risks. This kind of arrhythmia affects mostly elderly people, in particular those who suffer from heart failure (one of the main causes of hospitalization). Thus, detection of AF becomes decisive in the prevention of cardiac threats. In this paper an algorithm for AF detection based on a novel algorithm architecture and feature extraction methods is proposed. The aforementioned architecture is based on the analysis of the three main physiological characteristics of AF: i) P wave absence ii) heart rate irregularity and iii) atrial activity (AA). Discriminative features are extracted using model-based statistic and frequency based approaches. Sensitivity and specificity results (respectively, 93.80% and 96.09% using the MIT-BIH AF database) show that the proposed algorithm is able to outperform state-of-the-art methods.
+
+### **Methods Used**
+- P wave absence (template based)
+- Heart rate irregularity (Markov Process)
+- Atrial Activity (Discrete Packet Wavelet Transform & QRS-T Cancellation)
+    
+### **Results**
+- Sensitivity - 93.80% 
+- Specificity - 96.09%
+
+## Robust detection of atrial fibrillation from short-term electrocardiogram using convolutional neural networks
+
+### **Abstract**
+The most prevalent arrhythmia observed in clinical practice is atrial fibrillation (AF). AF is associated with an irregular heartbeat pattern and a lack of a distinct P-waves signal. A low-cost method for identifying this condition is the use of a single-lead electrocardiogram (ECG) as the gold standard for AF diagnosis, after annotation by experts. However, manual interpretation of these signals may be subjective and susceptible to inter-observer variabilities because many non-AF rhythms exhibit irregular RR-intervals and lack P-waves similar to AF. Furthermore, the acquired surface ECG signal is always contaminated by noise. Hence, highly accurate and robust detection of AF using short-term, single-lead ECG is valuable but challenging. To improve the existing model, this paper proposes a simple algorithm of a discrete wavelet transform (DWT) coupled with one-dimensional convolutional neural networks (1D-CNNs) to classify three classes: Normal Sinus Rhythm (NSR), AF and non-AF (NAF). The experiment was conducted with a combination of three public datasets and one dataset from an Indonesian hospital. The robustness of the proposed model was evaluated based on several validation data with an unseen pattern from 4 datasets. The results indicated that 1D-CNNs outperformed other approaches and achieved satisfactory performances with high generalization ability. The accuracy, sensitivity, specificity, precision, and F1-Score for two classes were 99.98%, 99.91%, 99.91%, 99.99%, and 99.95%, respectively. For the three classes, the accuracy, sensitivity, specificity, precision, and F1-Score was 99.17%, 98.90%, 99.17%, 96.74%, and 97.48%, respectively. Potentially, our approach can aid AF diagnosis in clinics and patient self-monitoring to improve early detection and effective treatment of AF.
+
+### **Methods Used**
+- DWT coupled 1D CNN
+
+### **Parameters Classified**
+- Normal Sinus Rhythm (NSR)
+- AF 
+- Non-AF (NAF)
+
+### **Results**
+- For AF and NSR
+  - DWT alone
+  	- Accuracy - 92.97%
+  	- Sensitivity	- 87.46%
+  	- Specificity - 87.46%
+  	- Precision - 71.78%
+  	- F1-Score - 81.63%
+  - DWT + 10 fold (Class Imbalance)
+  	- Accuracy - 99.98%
+  	- Sensitivity	- 99.91%
+  	- Specificity	- 99.91%
+  	- Precision	- 99.99%
+  	- F1-Score	- 99.95%		
+- For AF, NSR and NAF
+  - DWT + 10 fold
+  	- Accuracy	- 99.17%
+  	- Sensitivity	- 98.90%
+  	- Specificity	- 99.17%
+  	- Precision	- 96.74%
+  	- F1-Score - 97.48%
+(It has also results of other class imbalance techniques. This is the best result)
 
 # Class Imbalance
 
