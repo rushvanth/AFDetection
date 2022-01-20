@@ -52,7 +52,7 @@ CPU Consumption: less than 1 min/record
 
 ## Automated detection of atrial fibrillation using R-R intervals and multivariate-based classification
 
-## **Abstract:**
+### **Abstract:**
 Automated detection of AF from the electrocardiogram (ECG) still remains a challenge. In this study, we investigated two multivariate-based classification techniques, Random Forests (RF) and k-nearest neighbor (k-nn), for improved automated detection of AF from the ECG. We have compiled a new database from ECG data taken from existing sources. R-R intervals were then analyzed using four previously described R-R irregularity measurements: (1) the coefficient of sample entropy (CoSEn), (2) the coefficient of variance (CV), (3) root mean square of the successive differences (RMSSD), and (4) median absolute deviation (MAD). Using outputs from all four R-R irregularity measurements, RF and k-nn models were trained. RF classification improved AF detection over CoSEn with overall specificity of 80.1% vs. 98.3% and positive predictive value of 51.8% vs. 92.1% with a reduction in sensitivity, 97.6% vs. 92.8%. k-nn also improved specificity and PPV over CoSEn; however, the sensitivity of this approach was considerably reduced (68.0%).
 
 ### **Models Used:** 
@@ -258,6 +258,7 @@ Early detection of atrial fibrillation (AF) is of great importance to cardiologi
 ![Paper1](images/accuracy.jpg)
 ![Paper1](images/combination.jpg)
 
+
 # Class Imbalance
 
 ## The Effect of Data Augmentation on Classification of Atrial Fibrillation in Short Single-Lead ECG Signals Using Deep Neural Networks
@@ -272,7 +273,63 @@ Cardiovascular diseases are the most common cause of mortality worldwide. Detect
   
 ### **Result:** 
 Oversampling < GMM < DCGAN
+
+## Handling Class Overlap and Imbalance to Detect Prompt Situations in Smart Homes
+
+### **Abstract:**
+The class imbalance problem is a well-known classification challenge in machine learning that has vexed researchers for over a decade. Under-representation of one or more of the target classes (minority class(es)) as compared to others (majority class(es)) can restrict the application of conventional classifiers directly on the data. In addition, emerging challenges such as overlapping classes, make class imbalance even harder to solve. Class overlap is caused due to ambiguous regions in the data where the prior probability of two or more classes are approximately equal. We are motivated to address the challenge of class overlap in the presence of imbalanced classes by a problem in pervasive computing. Specifically, we are designing smart environments that perform health monitoring and assistance. Our solution, ClusBUS, is a clustering-based under sampling technique that identifies data regions where minority class samples are embedded deep inside majority class. By removing majority class samples from these regions, ClusBUS preprocesses the data in order to give more importance to the minority class during classification. Experiments show that ClusBUS achieves improved performance over an existing method for handling class imbalance.
+
+### **Models Used:** 
+- Clustering-based Under-sampling (ClusBus)
+- SMOTE
+  
+### **Result:** 
+ClusBus > SMOTE
+
 ___
+
+## Robust detection of atrial fibrillation from short-term electrocardiogram using convolutional neural networks
+
+### **This paper is explained above**
+
+## Automatic detection of arrhythmia from imbalanced ECG database using CNN model with SMOTE
+
+### **Abstract:**
+Timely prediction of cardiovascular diseases with the help of a computer-aided diagnosis system minimizes the mortality rate of cardiac disease patients. Cardiac arrhythmia detection is one of the most challenging tasks, because the variations of electrocardiogram(ECG) signal are very small, which cannot be detected by human eyes. In this study, an 11-layer deep convolutional neural network model is proposed for classification of the MIT-BIH arrhythmia database into five classes according to the ANSI–AAMI standards. In this CNN model, we designed a complete end-to-end structure of the classification method and applied without the denoising process of the database. The major advantage of the new methodology proposed is that the number of classifications will reduce and also the need to detect, and segment the QRS complexes, obviated. This MIT-BIH database has been artificially oversampled to handle the minority classes, class imbalance problem using SMOTE technique. This new CNN model was trained on the augmented ECG database and tested on the real dataset. The experimental results portray that the developed CNN model has better performance in terms of precision, recall, F-score, and overall accuracy as compared to the work mentioned in the literatures. These results also indicate that the best performance accuracy of 98.30% is obtained in the 70:30 train-test data set.
+
+### **Models Used:** 
+- SMOTE
+
+### **Result:** 
+- Accuracy - 98.3%
+  
+## Classification of imbalanced ECG beats using re-sampling techniques and AdaBoost ensemble classifier
+
+### **Abstract:**
+Computer-aided heartbeat classification has a significant role in the diagnosis of cardiac dysfunction. Electrocardiogram (ECG) provides vital information about the heartbeats. In this work, we propose a method for classifying five groups of heartbeats recommended by AAMI standard EC57:1998. Considering the nature of ECG signal, we employed a non-stationary and nonlinear decomposition technique termed as improved complete ensemble empirical mode decomposition (ICEEMD). Later, higher order statistics and sample entropy measures are computed from the intrinsic mode functions (IMFs) obtained from ICEEMD on each ECG segment. Furthermore, three data level pre-processing techniques are performed on the extracted feature set, to balance the distribution of heartbeat classes. Finally, these features fed to AdaBoost ensemble classifier for discriminating the heartbeats. Simulation results show that the proposed method provides a better solution to the class imbalance problem in heartbeat classification.
+
+### **Models Used:** 
+- Imbalance (Steps)
+  - Re-sampling
+  - Synthetic minority oversampling technique (SMOTE)
+  - Distribution based data sampling
+- ML techniques
+  - AdaBoost ensemble classifier (reduce error rate)
+  - SVM
+  - LDA
+  - k-NN
+
+### **Parameters Classified**
+- Non-ectopic beats
+- Supra Ventricular ectopic beats
+- Ventricular ectopic beats
+- Fusion beats
+- Unknown beats
+  
+### **Result:** 
+- Imbalance: Accuracy - 98.3%
+![Paper1](images/ML_techniques.jpg)
+
 
 ## Dealing with Class Imbalance in Data
 
@@ -299,6 +356,5 @@ Papers :-
 - [K-margin-based Residual-Convolution-Recurrent Neural Network for Atrial Fibrillation Detection](https://arxiv.org/abs/1908.06857)
 - [Ensemble Learning for Detection of Short Episodes of Atrial Fibrillation](https://ieeexplore.ieee.org/abstract/document/8553253)
 - [Handling Class Overlap and Imbalance to Detect Prompt Situations in Smart Homes](https://ieeexplore.ieee.org/document/6753930)
-- [MOON: A Mixed Objective Optimization Network for the Recognition of Facial Attributes](https://link.springer.com/chapter/10.1007%2F978-3-319-46454-1_2)
-- [Learning Deep Features for One-Class Classification](https://arxiv.org/abs/1801.05365)
-
+- [Automatic detection of arrhythmia from imbalanced ECG database using CNN model with SMOTE](https://link.springer.com/article/10.1007/s13246-019-00815-9)
+- [Classification of imbalanced ECG beats using re-sampling techniques and AdaBoost ensemble classifier](https://www.sciencedirect.com/science/article/pii/S1746809417302872)
