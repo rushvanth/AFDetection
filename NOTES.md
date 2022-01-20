@@ -198,6 +198,66 @@ The most prevalent arrhythmia observed in clinical practice is atrial fibrillati
   	- F1-Score - 97.48%
 (It has also results of other class imbalance techniques. This is the best result)
 
+## Reliable PPG-based algorithm in atrial fibrillation detection
+
+### **Abstract**
+Atrial Fibrillation (AF) is the most common type of arrhythmia. Since AF is a risk factor for stroke, automatic detection of AF is an important public health issue. Currently, the most useful and accurate tool for diagnosing AF is electrocardiography (EKG). On the other hand, PPG-based AF detection desires exploration. Photoplethysmogram (PPG) is an alternative technique to obtain the heart rate information by pulse oximetry. Convenience makes PPG promising in identifying arrhythmia like AF. The aim of this study is to investigate the potential of analyzing PPG waveforms to identify patients with AF. With the extracted features from multiple parameters, including interval and amplitude of PPG signals, patients were classified into AF and non-AF by support vector machine (SVM). The receiver operating characteristic curve (ROC) and statistical measures were applied to evaluate model performances. Among 468 patients' signals recorded in clinic environments, we achieve ROC area under curve, sensitivity and accuracy of 0.971, 0.942, and 0.957, respectively. The result suggests that the PPG-based AF detection algorithm is a promising pre-screening tool to help doctors monitoring patient with arrhythmia.
+
+### **Methods Used**
+- ANOVA(feature extraction)
+- SVM
+
+### **Parameters Classified**
+- Amplitude of PPG signal
+- Interval of PPG signal    
+
+### **Results**
+- Sensitivity - 0.942
+- Specificity - 0.962
+- Accuracy - 0.957
+
+## K-margin-based Residual-Convolution-Recurrent Neural Network for Atrial Fibrillation Detection
+
+### **Abstract**
+Atrial Fibrillation (AF) is an abnormal heart rhythm which can trigger cardiac arrest and sudden death. Nevertheless, its interpretation is mostly done by medical experts due to high error rates of computerized interpretation. One study found that only about 66% of AF were correctly recognized from noisy ECGs. This is in part due to insufficient training data, class skewness, as well as semantical ambiguities caused by noisy segments in an ECG record. In this paper, we propose a K-margin-based Residual-Convolution-Recurrent neural network (K-margin-based RCR-net) for AF detection from noisy ECGs. In detail, a skewness-driven dynamic augmentation method is employed to handle the problems of data inadequacy and class imbalance. A novel RCR-net is proposed to automatically extract both long-term rhythm-level and local heartbeat-level characters. Finally, we present a K-margin-based diagnosis model to automatically focus on the most important parts of an ECG record and handle noise by naturally exploiting expected consistency among the segments associated for each record. The experimental results demonstrate that the proposed method with 0.8125 F1NAOP score outperforms all state-of-the-art deep learning methods for AF detection task by 6.8%.
+
+### **Methods Used**
+- K-margin-based Residual-Convolution-Recurrent neural network
+- skewness-driven dynamic augmentation method (Class Imbalance)
+
+### **Parameters Classified**
+- Normal sinus rhythm
+- Atrial Fibrillation
+- Other rhythm
+- Too noisy to classify
+
+### **Results**
+- F1 score - 0.8125
+
+## Ensemble Learning for Detection of Short Episodes of Atrial Fibrillation
+
+### **Abstract**
+Early detection of atrial fibrillation (AF) is of great importance to cardiologists in order to help patients suffer from chronic cardiac arrhythmias. This paper proposes a novel algorithm to detect short episodes of atrial fibrillation (AF) using an ensemble framework. Several features are extracted from long term electrocardiogram (ECG) signals based on the heart rate variability (HRV). The most significant subset of features are selected as inputs to the four classifiers. Outputs of these classifiers are then combined for the final detection of the AF episodes. Results from an extensive analysis of the proposed algorithm show high classification accuracy (around 85 %) and sensitivity (around 92 %) for classifying very short episodes of AF (10 beats per segment, which is approximately 6 seconds). The accuracy and sensitivity of the proposed algorithm are improved significantly to 96.46 % and 94 %, respectively, for slightly longer episodes (60 beats per segment) of AF. Compared to the state-of-the-art algorithms, the proposed method shows the potential to pave the way to extend to real-time AF detection applications.
+
+### **Methods Used**
+- Random Forests (RF)
+- Support Vector Machine (SVM)
+- Adaptive Boosting (Ad-aBoost)
+- Group Method of data Handling (GMDH)
+- Trained separately using 5-fold cross validation
+- Outputs are combined using Dempster-Shafer theory (DST)
+
+### **Parameters Classified**
+- RR Intervals
+  - Standard Deviation
+  - Mean
+  - Root Mean Square
+  - Normalised Root Mean Square
+
+### **Results**
+![Paper1](images/accuracy.jpg)
+![Paper1](images/combination.jpg)
+
 # Class Imbalance
 
 ## The Effect of Data Augmentation on Classification of Atrial Fibrillation in Short Single-Lead ECG Signals Using Deep Neural Networks
