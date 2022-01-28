@@ -5,4 +5,4 @@ scikit_learn
 seaborn
 pylint
 statsmodels
-scikitplot
+scikit-plot
