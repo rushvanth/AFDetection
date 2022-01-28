@@ -19,8 +19,10 @@ def gen_metadata():
     data = pd.read_csv(relative_path)
     # Print some metadata about the classes
     (unique,counts) = np.unique(data['Control'],return_counts=True)
+    print("Metadata:\n" + "-"*50 + "\n")
     print(f"Data in the 'Control' column: {dict(zip(unique,counts))} \n")
     print(f"Ratio of occurrences of each class: {dict(zip(unique,counts/len(data['Control'])))}\n")
+    print("-"*50 + "\n")
     # display counts on a graph and save it
     target_variables = ['Non-AF','AF']
     sns.set_theme(style='whitegrid')
