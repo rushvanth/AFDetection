@@ -10,15 +10,17 @@ images_path = os.path.join(parent_dir, 'images')
 def svm_feature_importance(coef, names, fig_path, plot_title):
     """Visualize the feature importance of the SVM classifier."""
     imp = coef
-    imp,names = zip(*sorted(list(zip(imp,names))))
+    imp,names = zip(*sorted(zip(imp,names)))
     # Plot the feature importance
     plt.barh(range(len(names)), imp, align='center')
     plt.yticks(range(len(names)), names)
     plt.title(f'{plot_title} Feature Importance')
     plt.savefig(os.path.join(fig_path, 'feature_importance.png'))
 
+
 def visualize_results(results, classifier_name):
-    feature_names = results['x_train'].columns
+    feature_names = results['x_train'].columns.tolist()
+    print(f"Feature names: {feature_names}")
     # Derive plot titles from classifier name. Make first letter uppercase and replace underscores with spaces
     plot_title = classifier_name.title().replace('_', ' ')
     """Visualize ROC Curve, Confusion Matrix, Classification Report and Feature Importance."""
@@ -30,7 +32,7 @@ def visualize_results(results, classifier_name):
     # Feature Importance
     # If Classifier name has svm, use a different method to visualize feature importance
     if 'svm' in classifier_name:
-        svm_feature_importance(results['model'].coef_, feature_names, fig_path, plot_title)
+        svm_feature_importance(results['model'].coef_[0], feature_names, fig_path, plot_title)
     else:
         skplt.estimators.plot_feature_importances(results['model'], feature_names=results['x_train'].columns, figsize=(14,6))
     plt.title(f'{plot_title} Feature Importance')
