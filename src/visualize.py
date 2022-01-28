@@ -9,15 +9,11 @@ images_path = os.path.join(parent_dir, 'images')
 
 def svm_feature_importance(coef, names, fig_path, plot_title):
     """Visualize the feature importance of the SVM classifier."""
-    # Sort the coefficients in descending order
-    coef = coef[0]
-    coef = coef.tolist()
-    coef = sorted(coef, reverse=True)
-    # Get the names of the features in the same order as the coefficients
-    names = [names[0][i] for i in range(len(coef))]
+    imp = coef
+    imp,names = zip(*sorted(list(zip(imp,names))))
     # Plot the feature importance
-    plt.barh(range(len(coef)), coef, align='center')
-    plt.yticks(range(len(coef)), names)
+    plt.barh(range(len(names)), imp, align='center')
+    plt.yticks(range(len(names)), names)
     plt.title(f'{plot_title} Feature Importance')
     plt.savefig(os.path.join(fig_path, 'feature_importance.png'))
 
