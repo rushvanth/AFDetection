@@ -20,7 +20,6 @@ def svm_feature_importance(coef, names, fig_path, plot_title):
 
 def visualize_results(results, classifier_name):
     feature_names = results['x_train'].columns.tolist()
-    print(f"Feature names: {feature_names}")
     # Derive plot titles from classifier name. Make first letter uppercase and replace underscores with spaces
     plot_title = classifier_name.title().replace('_', ' ')
     """Visualize ROC Curve, Confusion Matrix, Classification Report and Feature Importance."""
