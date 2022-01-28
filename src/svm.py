@@ -3,13 +3,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn import metrics
 
-def svm(X, y):
+def svm(X, y, kernel='linear'):
     """Uses Support Vector Machine to classify data as AF vs Non-AF"""
     # Split data into training and testing sets
     x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=101)
     # Use SVM to predict the outcome
     print("Training Support Vector Machine...\n")
-    svm = SVC(kernel='rbf', random_state=101)
+    svm = SVC(kernel=kernel, random_state=101)
     svm.fit(x_train, y_train)
     y_pred = svm.predict(x_test)
     print("Support Vector Machine Results\n" + "-" * 50 + "\n")
