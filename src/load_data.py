@@ -20,6 +20,8 @@ def gen_metadata():
     # Print some metadata about the classes
     (unique,counts) = np.unique(data['Control'],return_counts=True)
     print("Metadata:\n" + "-"*50 + "\n")
+    print(f"Classes: {str(unique)} \n")
+    print("Class Labels: \n 0 - Non AF\n 1 - AF\n")
     print(f"Data in the 'Control' column: {dict(zip(unique,counts))} \n")
     print(f"Ratio of occurrences of each class: {dict(zip(unique,counts/len(data['Control'])))}\n")
     print("-"*50 + "\n")

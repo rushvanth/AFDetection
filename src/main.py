@@ -17,3 +17,5 @@ visualize.visualize_results(dt_results, "decision_tree")
 
 # Support Vector Machine
 svm_results = svm.svm(X, y)
+# Visualize results
+visualize.visualize_results(svm_results, "svm")
