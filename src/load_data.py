@@ -29,7 +29,7 @@ def gen_metadata():
     plt.ylabel('Count')
     for i,_ in enumerate(counts):
         plt.text(i-0.25, counts[i]+0.5, counts[i], color='black', fontweight='bold')
-    img_file_path = 'images/count_of_AF_and_Non_AF_occurrences.png'
+    img_file_path = 'images/general/count_of_AF_and_Non_AF_occurrences.png'
     plt.savefig(os.path.join(parent_dir, img_file_path))
     return data
     
