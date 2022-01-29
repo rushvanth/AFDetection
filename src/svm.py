@@ -8,7 +8,7 @@ def svm(X, y, kernel='linear'):
     # Split data into training and testing sets
     x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=101)
     # Use SVM to predict the outcome
-    print("Training Support Vector Machine...\n")
+    print(f"Training Support Vector Machine with {kernel}...\n")
     svm = SVC(kernel=kernel, random_state=101)
     svm.fit(x_train, y_train)
     y_pred = svm.predict(x_test)
