@@ -30,7 +30,7 @@ def visualize_results(results, classifier_name):
         os.makedirs(fig_path)
     # Feature Importance
     # If Classifier name has svm, use a different method to visualize feature importance
-    if 'linear_svm' in classifier_name:
+    if 'linear_svm' == classifier_name:
         svm_feature_importance(results['model'].coef_[0], feature_names, fig_path, plot_title)
     elif 'decision_tree' in classifier_name:
         skplt.estimators.plot_feature_importances(results['model'], feature_names=results['x_train'].columns, figsize=(14,6))
