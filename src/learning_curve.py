@@ -168,4 +168,4 @@ def train_data(X,y):
     plot_learning_curve(
         estimator, title, X, y, axes=axes, ylim=(0.7, 1.01), cv=cv, n_jobs=4
     )
-    plt.savefig(os.path.join(images_path, 'svm/svm_learning_curve.png'))
+    plt.savefig(os.path.join(images_path, 'learning_curves/svm_learning_curve.png'))
