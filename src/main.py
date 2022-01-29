@@ -19,3 +19,6 @@ visualize.visualize_results(dt_results, "decision_tree")
 svm_results = svm.svm(X, y)
 # Visualize results
 visualize.visualize_results(svm_results, "linear_svm")
+
+nonlinear_svm_results = svm.svm(X, y, kernel='rbf')
+visualize.visualize_results(nonlinear_svm_results, "nonlinear_svm")

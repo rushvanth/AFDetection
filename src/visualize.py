@@ -19,10 +19,10 @@ def svm_feature_importance(coef, names, fig_path, plot_title):
 
 
 def visualize_results(results, classifier_name):
+    """Visualize ROC Curve, Confusion Matrix, Classification Report and Feature Importance."""
     feature_names = results['x_train'].columns.tolist()
     # Derive plot titles from classifier name. Make first letter uppercase and replace underscores with spaces
     plot_title = classifier_name.title().replace('_', ' ')
-    """Visualize ROC Curve, Confusion Matrix, Classification Report and Feature Importance."""
     # Join classifier_name with images_path
     fig_path = os.path.join(images_path, classifier_name)
     # Create directory if it doesn't exist
@@ -30,12 +30,12 @@ def visualize_results(results, classifier_name):
         os.makedirs(fig_path)
     # Feature Importance
     # If Classifier name has svm, use a different method to visualize feature importance
-    if 'svm' in classifier_name:
+    if 'linear_svm' in classifier_name:
         svm_feature_importance(results['model'].coef_[0], feature_names, fig_path, plot_title)
-    else:
+    elif 'decision_tree' in classifier_name:
         skplt.estimators.plot_feature_importances(results['model'], feature_names=results['x_train'].columns, figsize=(14,6))
-    plt.title(f'{plot_title} Feature Importance')
-    plt.savefig(os.path.join(fig_path, 'feature_importance.png'))
+        plt.title(f'{plot_title} Feature Importance')
+        plt.savefig(os.path.join(fig_path, 'feature_importance.png'))
     # ROC Curve
     roc_curve = metrics.RocCurveDisplay.from_predictions(results['y_test'], results['y_pred'])
     roc_curve.plot()
