@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.svm import SVC
@@ -156,7 +157,10 @@ def plot_learning_curve(
     return plt
 
 def train_data(X,y):
-    fig, axes = plt.subplots(3, 1, figsize=(10, 15))
+    parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
+    images_path = os.path.join(parent_dir, 'images')
+
+    fig, axes = plt.subplots(3, 1, figsize=(20, 10))
     title = r"Learning Curves (SVM, RBF kernel, $\gamma=0.001$)"
     # SVC is more expensive so we do a lower number of CV iterations:
     cv = ShuffleSplit(n_splits=5, test_size=0.2, random_state=0)
@@ -164,4 +168,4 @@ def train_data(X,y):
     plot_learning_curve(
         estimator, title, X, y, axes=axes, ylim=(0.7, 1.01), cv=cv, n_jobs=4
     )
-    plt.show()
+    plt.savefig(os.path.join(images_path, 'svm/svm_learning_curve.png'))
