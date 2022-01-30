@@ -6,3 +6,4 @@ seaborn
 pylint
 statsmodels
 scikit-plot
+imbalanced-learn
